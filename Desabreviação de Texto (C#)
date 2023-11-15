@@ -1,0 +1,87 @@
+using System;
+
+class Program
+{
+    static string SubstituirLetraN(string frase)
+    {
+        string[] palavras = frase.Split(' ');
+        for (int i = 0; i < palavras.Length; i++)
+        {
+            if (palavras[i].Equals("N", StringComparison.OrdinalIgnoreCase))
+            {
+                palavras[i] = "Não";
+            }
+        }
+        return string.Join(" ", palavras);
+    }
+
+    static string SubstituirQlqr(string frase)
+    {
+        string[] palavras = frase.Split(' ');
+        for (int i = 0; i < palavras.Length; i++)
+        {
+            if (palavras[i].Equals("qlqr", StringComparison.OrdinalIgnoreCase))
+            {
+                if (char.IsLower(palavras[i][0]))
+                {
+                    palavras[i] = "qualquer";
+                }
+                else
+                {
+                    palavras[i] = "Qualquer";
+                }
+            }
+        }
+        return string.Join(" ", palavras);
+    }
+
+    static string SubstituirCd(string frase)
+    {
+        frase = frase.Replace(" cd ", " Cade ");
+        frase = frase.Replace(" Cd ", " Cade ");
+        frase = frase.Replace(" cd.", " Cade.");
+        frase = frase.Replace(" Cd.", " Cade.");
+        frase = frase.Replace(" cd,", " Cade,");
+        frase = frase.Replace(" Cd,", " Cade,");
+        frase = frase.Replace(" cd;", " Cade;");
+        frase = frase.Replace(" Cd;", " Cade;");
+        frase = frase.Replace(" cd:", " Cade:");
+        frase = frase.Replace(" Cd:", " Cade:");
+        frase = frase.Replace(" cd!", " Cade!");
+        frase = frase.Replace(" Cd!", " Cade!");
+        frase = frase.Replace(" cd?", " Cade?");
+        frase = frase.Replace(" Cd?", " Cade?");
+
+        return frase;
+    }
+
+    static string SubstituirMaiusculas(string frase)
+    {
+        frase = frase.Replace(" CD ", " CADE ");
+        frase = frase.Replace(" TLVZ ", " TALVEZ ");
+        frase = frase.Replace(" QLQR ", " QUALQUER ");
+        frase = frase.Replace(" S ", " Sim ");
+        frase = frase.Replace(" s ", " sim ");
+        frase = frase.Replace(" TLVS ", " Talvez ");
+        frase = frase.Replace(" Tlvs ", " Talvez ");
+        frase = frase.Replace(" tlvz ", " talvez ");
+        frase = frase.Replace(" Tlvz ", " Talvez ");
+        frase = frase.Replace(" tlvs ", " talvez ");
+
+        return frase;
+    }
+
+    static void Main()
+    {
+        string fraseOriginal = " S , s , N , n , Qlqr, QLQR , qlqr , Tlvz , TLVZ , tlvz , Tlvs , TLVS , tlvs .";
+
+        // Realizando as substituições
+        string fraseModificada = SubstituirLetraN(fraseOriginal);
+        fraseModificada = SubstituirQlqr(fraseModificada);
+        fraseModificada = SubstituirCd(fraseModificada);
+        fraseModificada = SubstituirMaiusculas(fraseModificada);
+
+        Console.WriteLine("Frase Original: " + fraseOriginal);
+        Console.WriteLine("Frase Modificada: " + fraseModificada);
+    }
+}
