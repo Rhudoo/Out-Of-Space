@@ -1,0 +1,195 @@
+# Abreviação de Cade (Cd,cd) desabreviada por meio de Python:
+
+def substituir_cd(frase):
+  palavras = frase.split()
+  nova_frase = ''
+
+  for i, palavra in enumerate(palavras):
+      palavra_minuscula = palavra.lower()
+      if palavra_minuscula == 'cd':
+          if palavra[0].islower():
+              palavras[i] = 'cade'
+          else:
+              palavras[i] = 'Cade'
+      elif palavra_minuscula.rstrip('.!,;:?') == 'cd':
+          if palavra[0].islower():
+              palavras[i] = 'cade' + palavra[-1]
+          else:
+              palavras[i] = 'Cade' + palavra[-1]
+
+  nova_frase = ' '.join(palavras)
+  return nova_frase
+
+def substituir_cd(frase):
+  nova_frase = frase.replace(' cd ', ' Cade ')
+  nova_frase = nova_frase.replace(' Cd ', ' Cade ')
+  nova_frase = nova_frase.replace(' cd ', ' cade ')
+  nova_frase = nova_frase.replace(' cd.', ' Cade.')
+  nova_frase = nova_frase.replace(' Cd.', ' Cade.')
+  nova_frase = nova_frase.replace(' cd,', ' Cade,')
+  nova_frase = nova_frase.replace(' Cd,', ' Cade,')
+  nova_frase = nova_frase.replace(' cd;', ' Cade;')
+  nova_frase = nova_frase.replace(' Cd;', ' Cade;')
+  nova_frase = nova_frase.replace(' cd:', ' Cade:')
+  nova_frase = nova_frase.replace(' Cd:', ' Cade:')
+  nova_frase = nova_frase.replace(' cd!', ' Cade!')
+  nova_frase = nova_frase.replace(' Cd!', ' Cade!')
+  nova_frase = nova_frase.replace(' cd?', ' Cade?')
+  nova_frase = nova_frase.replace(' Cd?', ' Cade?')
+
+  return nova_frase
+
+import re
+
+def substituir_cd(frase):
+    # Usando expressões regulares para substituir 'cd' ou 'Cd' independentemente de espaços ou pontuações
+    padrao = r'\b(cd|Cd)\b'
+    nova_frase = re.sub(padrao, lambda match: 'cade' if match.group(1)[0].islower() else 'Cade', frase)
+
+    return nova_frase
+
+import re
+
+def substituir_cd(frase):
+    # Usando expressões regulares para substituir 'cd' ou 'Cd' independentemente de espaços ou pontuações
+    padrao = r'\b(cd|Cd)\b'
+    nova_frase = re.sub(padrao, lambda match: 'cadê' if match.group(1)[0].islower() else 'Cadê', frase)
+
+    return nova_frase
+
+
+
+# Exemplo de utilização:
+frase_original = "cd é uma forma abreviada. Cd também."
+frase_modificada = substituir_cd(frase_original)
+print(f"Frase Original: {frase_original}")
+print(f"Frase Modificada: {frase_modificada}")
+
+
+# Abreviação de Qualquer (Qlqr) desabreviada por meio de Python:
+
+def substituir_letras(frase):
+  palavras = frase.split()
+  nova_frase = ''
+
+  for i, palavra in enumerate(palavras):
+      if palavra.lower() == 'qlqr':
+          if palavra[0].islower():
+              palavras[i] = 'qualquer'
+          else:
+              palavras[i] = 'Qualquer'
+
+  nova_frase = ' '.join(palavras)
+  return nova_frase
+
+def substituir_qlqr(frase):
+  palavras = frase.split()
+  nova_frase = ''
+
+  for i, palavra in enumerate(palavras):
+      if palavra.lower() == 'qlqr':
+          if palavra[0].islower():
+              palavras[i] = 'qualquer'
+          else:
+              palavras[i] = 'Qualquer'
+
+  nova_frase = ' '.join(palavras)
+  return nova_frase
+
+# Exemplo de utilização:
+frase_original = "Eu gostaria de qlqr coisa para comer. Qlqr dia está bom para sair."
+frase_modificada = substituir_qlqr(frase_original)
+print(f"Frase Original: {frase_original}")
+print(f"Frase Modificada: {frase_modificada}")
+
+# Abreviação de Não (N,n) Desabreviada por meio de Python:
+
+def substituir_letra_n(frase):
+  palavras = frase.split()
+  nova_frase = ''
+
+  for i, palavra in enumerate(palavras):
+      if len(palavra) == 1 and palavra == 'N':
+          palavras[i] = 'Não'
+
+  nova_frase = ' '.join(palavras)
+  return nova_frase
+
+def substituir_letra_n(frase):
+  nova_frase = frase.replace(' N ', ' Não ')
+  nova_frase = nova_frase.replace(' n ', ' não ')
+  nova_frase = nova_frase.replace(' N.', ' Não.')
+  nova_frase = nova_frase.replace(' n.', ' não.')
+  nova_frase = nova_frase.replace(' N,', ' Não,')
+  nova_frase = nova_frase.replace(' n,', ' não,')
+  nova_frase = nova_frase.replace(' N;', ' Não;')
+  nova_frase = nova_frase.replace(' n;', ' não;')
+  nova_frase = nova_frase.replace(' N:', ' Não:')
+  nova_frase = nova_frase.replace(' n:', ' não:')
+  nova_frase = nova_frase.replace(' N!', ' Não!')
+  nova_frase = nova_frase.replace(' n!', ' não!')
+  nova_frase = nova_frase.replace(' N?', ' Não?')
+  nova_frase = nova_frase.replace(' n?', ' não?')
+
+  return nova_frase
+
+# Exemplo de utilização:
+frase_original = "Nós estamos na Space Station 14. N é normal n."
+frase_modificada = substituir_letra_n(frase_original)
+print(f"Frase Original: {frase_original}")
+print(f"Frase Modificada: {frase_modificada}")
+
+# Abreviação de Sim (S,s) desabreviada por meio de Python:
+
+import re
+
+def substituir_letra_s(frase):
+    padrao = r'\b(S|s)\b'
+    nova_frase = re.sub(padrao, lambda match: 'Sim' if match.group(1).isupper() else 'sim', frase)
+
+    # Substituir 'S' ou 's' seguido de pontuações por 'Sim' ou 'sim'
+    nova_frase = re.sub(r'(S|s)([.,;:?!])', lambda match: 'Sim' if match.group(1).isupper() else 'sim', nova_frase)
+
+    return nova_frase
+
+# Exemplo de utilização:
+frase_original = "S está certo. s. s, s; s:."
+frase_modificada = substituir_letra_s(frase_original)
+print(f"Frase Original: {frase_original}")
+print(f"Frase Modificada: {frase_modificada}")
+
+Abreviação de Talvez desabreviada por meio de Python:
+
+import re
+
+def substituir_talvez(frase):
+    padrao = r'\b([Tt]lvs?|[Tt]lvz)\b'
+    nova_frase = re.sub(padrao, lambda match: 'Talvez' if match.group(1)[0].isupper() else 'talvez', frase)
+
+    return nova_frase
+
+# Exemplo de utilização:
+frase_original = "Tlvz está correto. tlvz não."
+frase_modificada = substituir_talvez(frase_original)
+print(f"Frase Original: {frase_original}")
+print(f"Frase Modificada: {frase_modificada}")
+
+**funciona com tlvs também**
+
+# Desabreviações em caso de escrita abreviada em caixa alta (CD/QLQR):
+
+import re
+
+def substituir_cd_tlvz(frase):
+    nova_frase = re.sub(r'\b(CD)\b', lambda match: 'CADE' if match.group(1).isupper() else 'CADE', frase)
+    nova_frase = re.sub(r'\b(TLVZ)\b', lambda match: 'TALVEZ' if match.group(1).isupper() else 'TALVEZ', nova_frase)
+    nova_frase = re.sub(r'\b(TLVS)\b', lambda match: 'TALVEZ' if match.group(1).isupper() else 'TALVEZ', nova_frase)
+
+    return nova_frase
+
+# Exemplo de utilização:
+frase_original = "CD é uma abreviação. TLVZ TLVS é outra. Cd também."
+frase_modificada = substituir_cd_tlvz(frase_original)
+
+print(f"Frase Original: {frase_original}")
+print(f"Frase Modificada: {frase_modificada}")
