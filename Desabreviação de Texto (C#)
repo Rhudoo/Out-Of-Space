@@ -7,7 +7,7 @@ class Program
         string[] palavras = frase.Split(' ');
         for (int i = 0; i < palavras.Length; i++)
         {
-            if (palavras[i].Equals("N", StringComparison.OrdinalIgnoreCase))
+            if (palavras[i].Equals("N", StringComparison.Ordinal))
             {
                 palavras[i] = "Não";
             }
@@ -17,22 +17,10 @@ class Program
 
     static string SubstituirQlqr(string frase)
     {
-        string[] palavras = frase.Split(' ');
-        for (int i = 0; i < palavras.Length; i++)
-        {
-            if (palavras[i].Equals("qlqr", StringComparison.OrdinalIgnoreCase))
-            {
-                if (char.IsLower(palavras[i][0]))
-                {
-                    palavras[i] = "qualquer";
-                }
-                else
-                {
-                    palavras[i] = "Qualquer";
-                }
-            }
-        }
-        return string.Join(" ", palavras);
+        frase = frase.Replace(" Qlqr ", " Qualquer ");
+        frase = frase.Replace(" QLQR ", " QUALQUER ");
+        frase = frase.Replace(" qlqr ", " qualquer ");
+        return frase;
     }
 
     static string SubstituirCd(string frase)
@@ -51,29 +39,55 @@ class Program
         frase = frase.Replace(" Cd!", " Cade!");
         frase = frase.Replace(" cd?", " Cade?");
         frase = frase.Replace(" Cd?", " Cade?");
-
         return frase;
     }
 
     static string SubstituirMaiusculas(string frase)
     {
-        frase = frase.Replace(" CD ", " CADE ");
-        frase = frase.Replace(" TLVZ ", " TALVEZ ");
-        frase = frase.Replace(" QLQR ", " QUALQUER ");
         frase = frase.Replace(" S ", " Sim ");
         frase = frase.Replace(" s ", " sim ");
-        frase = frase.Replace(" TLVS ", " Talvez ");
-        frase = frase.Replace(" Tlvs ", " Talvez ");
-        frase = frase.Replace(" tlvz ", " talvez ");
-        frase = frase.Replace(" Tlvz ", " Talvez ");
-        frase = frase.Replace(" tlvs ", " talvez ");
-
+        frase = frase.Replace(" N ", " Não ");
+        frase = frase.Replace(" n ", " não ");
+        frase = frase.Replace("TLVZ", "TALVEZ");
+        frase = frase.Replace("TLVS", "TALVEZ");
+        frase = frase.Replace("MDS", "MEU DEUS");
+        frase = frase.Replace("Mds", "Meu Deus");
+        frase = frase.Replace("mds", "meu Deus");
+        frase = frase.Replace("BLZ", " BELEZA");
+        frase = frase.Replace("blz", " beleza");
+        frase = frase.Replace("Blz", " Beleza");
+        frase = frase.Replace(" Td ", " Tudo ");
+        frase = frase.Replace(" td ", " tudo ");
+        frase = frase.Replace(" TD ", " TUDO ");
+        frase = frase.Replace("msm", "mesmo");
+        frase = frase.Replace("Msm", "Mesmo");
+        frase = frase.Replace("MSM", "MESMO");
+        frase = frase.Replace("TDS", "TODOS");
+        frase = frase.Replace("tds", "todos");
+        frase = frase.Replace("Tds", "Todos");
+        frase = frase.Replace("Vdd", "Verdade");
+        frase = frase.Replace("vdd", "verdade");
+        frase = frase.Replace("VDD", "VERDADE");
+        frase = frase.Replace("Agr", "Agora");
+        frase = frase.Replace("agr", "agora");
+        frase = frase.Replace("AGR", "AGORA");
+        frase = frase.Replace("Tlvz", "Talvez");
+        frase = frase.Replace("tlvz", "talvez");
+        frase = frase.Replace("Tlvs", "Talvez");
+        frase = frase.Replace("tlvs", "talvez");
+        frase = frase.Replace("QND", "QNDO");
+        frase = frase.Replace("Qnd", "Qndo");
+        frase = frase.Replace("qnd", "qndo");
+        frase = frase.Replace("QNDO", "QUANDO");
+        frase = frase.Replace("Qndo", "Quando");
+        frase = frase.Replace("qndo", "quando");
+      
         return frase;
     }
 
     static void Main()
     {
-        string fraseOriginal = " S , s , N , n , Qlqr, QLQR , qlqr , Tlvz , TLVZ , tlvz , Tlvs , TLVS , tlvs .";
+        string fraseOriginal = " S , s , N , n , Qlqr , QLQR , qlqr , Tlvz , TLVZ , tlvz , Tlvs , TLVS , tlvs , mds , MDS , Mds , BLZ , blz , Blz , Agr , AGR , agr , Td , td , TD , msm , Msm , MSM , TDS , tds , Tds , Vdd , VDD , vdd ./ S , tds os dias são diferentes. Msm que eu n saiba td , tlvz, um dia eu saiba. A verdade é que minha mãe sempre diz 'Mds, que blz!', qndo vê as flores no jardim. Eu, por outro lado, sempre fico em dúvida, agr, se devo regá-las tds os dias. S , essa é a vdd.";
 
         // Realizando as substituições
         string fraseModificada = SubstituirLetraN(fraseOriginal);
@@ -85,3 +99,4 @@ class Program
         Console.WriteLine("Frase Modificada: " + fraseModificada);
     }
 }
+
